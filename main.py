@@ -4,6 +4,7 @@ def showmenu():
   print("3. Să se afișeze toate numerele care aparțin unui interval deschis citit de la tastatură.")
   print("4. Afișarea tuturor numerelor a căror parte întreagă este divizor al părții fracționare")
   print("5. Afișarea listei obținute din lista inițială în care numerele sunt înlocuite cu un string format din cuvinte care le descriu caracter cu caracter.")
+  print("6. Iesire")
 
 
 
@@ -30,6 +31,11 @@ def parte_intreaga(list):
     result.append(elem)
   return result
 
+def test_parte_intreaga():
+  assert parte_intreaga([2.5, 4, 3.4, 5]) == [2, 4, 3, 5]
+  assert parte_intreaga([4.5, 5, 6.3, -3]) == [4, 5, 6, -3]
+  assert parte_intreaga([6.5, 7, 5, 5.6]) == [6, 7, 5, 5]
+
 
 
 
@@ -50,6 +56,21 @@ def interval_deschis(list,st,dr):
   return result
 
 
+def div_al_partii_fract(list):
+  result=[]
+  for i in range(0, len(list)):
+    a = list[i]
+    f = a - int(a)
+    f = round(f*10)
+
+    div = int(a)
+    if f%div == 0:
+      result.append(a)
+  return result
+
+
+
+
 
 def main():
   list=[]
@@ -65,11 +86,20 @@ def main():
       dr=int(input("Dati capatul din dr"))
       print(interval_deschis(list,st,dr))
     elif optiune == "4":
-      
+      print(div_al_partii_fract(list))
+
+
+    elif optiune == "6":
+      break
+    else:
+      print("Optiune gresita! Selectati alta optiune.")
+
+
 
 
 
 
 
 if __name__ == '__main__':
+  test_parte_intreaga()
   main()
