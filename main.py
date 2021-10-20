@@ -61,6 +61,11 @@ def test_interval_deschis():
 
 
 def div_al_partii_fract(list):
+  """
+   Afișarea tuturor numerelor a căror parte întreagă este divizor al părții fracționare
+  :param list: lista cu float-uri
+  :return: lista cu numere a căror parte întreagă este divizor al părții fracționare
+  """
   result=[]
   for i in range(0,len(list)):
     a = list[i]
@@ -93,8 +98,6 @@ def main():
       print(interval_deschis(list,st,dr))
     elif optiune == "4":
       print(div_al_partii_fract(list))
-
-
     elif optiune == "6":
       break
     else:
