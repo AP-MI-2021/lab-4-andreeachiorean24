@@ -55,10 +55,14 @@ def interval_deschis(list,st,dr):
       result.append(i)
   return result
 
+def test_interval_deschis():
+  assert interval_deschis([1.5, -3.3, 8, 9.8, 3.2],-4,5) ==  [1.5, -3.3, 3.2]
+  assert interval_deschis([1.6, 3.3, 9, 9.1, 3.2],2,5) ==  [3.3, 3.2]
+
 
 def div_al_partii_fract(list):
   result=[]
-  for i in range(0, len(list)):
+  for i in range(0,len(list)):
     a = list[i]
     f = a - int(a)
     f = round(f*10)
@@ -67,6 +71,8 @@ def div_al_partii_fract(list):
     if f%div == 0:
       result.append(a)
   return result
+
+
 
 
 
@@ -102,4 +108,5 @@ def main():
 
 if __name__ == '__main__':
   test_parte_intreaga()
+  test_interval_deschis()
   main()
